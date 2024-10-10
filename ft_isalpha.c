@@ -6,16 +6,16 @@
 /*   By: melferre <melferre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 19:43:26 by melferre          #+#    #+#             */
-/*   Updated: 2024/10/08 17:50:46 by melferre         ###   ########.fr       */
+/*   Updated: 2024/10/10 15:40:58 by melferre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isalpha(int c)
+int	ft_isalpha(int c)
 {
 	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
 		return (1024);
 	else
-		return (0);	
+		return (0);
 }

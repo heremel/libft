@@ -6,7 +6,7 @@
 /*   By: melferre <melferre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 13:41:49 by melferre          #+#    #+#             */
-/*   Updated: 2024/10/08 18:22:30 by melferre         ###   ########.fr       */
+/*   Updated: 2024/10/10 22:37:19 by melferre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,12 @@ int	ft_atoi(const char *str)
 		i++;
 	while (str[i] == '-' || str[i] == '+')
 	{
-		if (str[i] == '-')
+		if (str[i++] == '-')
 			m++;
 		sign++;
-		i++;
 	}
 	while (str[i] >= '0' && str[i] <= '9')
-	{
-		nb = nb * 10 + (str[i] - '0');
-		i++;
-	}
+		nb = nb * 10 + (str[i++] - '0');
 	if (m > 1 || sign > 1)
 		return (0);
 	else if (m == 1)

@@ -6,13 +6,13 @@
 /*   By: melferre <melferre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 13:41:44 by melferre          #+#    #+#             */
-/*   Updated: 2024/10/08 13:41:45 by melferre         ###   ########.fr       */
+/*   Updated: 2024/10/10 15:41:40 by melferre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isascii(int c)
+int	ft_isascii(int c)
 {
-    return (c >= 0 && c <= 127);
+	return (c >= 0 && c <= 127);
 }

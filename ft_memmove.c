@@ -6,7 +6,7 @@
 /*   By: melferre <melferre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 17:38:04 by melferre          #+#    #+#             */
-/*   Updated: 2024/10/09 20:36:45 by melferre         ###   ########.fr       */
+/*   Updated: 2024/10/10 15:25:03 by melferre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	size_t	i;
-	char *str;
-	const char *str_sec;
-	const char *temp;
+	size_t		i;
+	char		*str;
+	const char	*str_sec;
+	const char	*temp;
 
 	str = dest;
 	str_sec = src;

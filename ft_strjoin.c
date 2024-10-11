@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: melferre <melferre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/11 17:44:26 by melferre          #+#    #+#             */
-/*   Updated: 2024/10/11 18:03:32 by melferre         ###   ########.fr       */
+/*   Created: 2024/10/11 20:31:30 by melferre          #+#    #+#             */
+/*   Updated: 2024/10/11 20:42:05 by melferre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	void	*str;
-	char	*newstr;
-	size_t	i;
+	int	i;
+	int	length;
+	char *newstr;
+	char *str1;
+	char *str2;
 
 	i = 0;
-	str = malloc(nmemb * size);
-	if (!str)
-		return (0);
-	newstr = str;
-	while (i < size * nmemb)
+	str1 = (char *)s1;
+	str2 = (char *)s2;
+	length = ft_strlen(str1);
+	newstr = malloc (ft_strlen(str1) + ft_strlen(str2) + 1);
+	if (!newstr)
+		return (NULL);
+	while (s2[i] != '\0')
 	{
-		newstr[i] = '\0';
+		str1[length + i] = str2[i];
 		i++;
 	}
-	newstr[i] = '\0';
+	newstr[length + i] = '\0';
 	return (newstr);
 }

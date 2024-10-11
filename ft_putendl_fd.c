@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: melferre <melferre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/11 17:44:26 by melferre          #+#    #+#             */
-/*   Updated: 2024/10/11 18:03:32 by melferre         ###   ########.fr       */
+/*   Created: 2024/10/11 18:38:22 by melferre          #+#    #+#             */
+/*   Updated: 2024/10/11 18:51:22 by melferre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	ft_putendl_fd(char *s, int fd)
 {
-	void	*str;
-	char	*newstr;
-	size_t	i;
+	int	i;
 
 	i = 0;
-	str = malloc(nmemb * size);
-	if (!str)
-		return (0);
-	newstr = str;
-	while (i < size * nmemb)
+	if (!s)
+		return ;
+	while (s[i])
 	{
-		newstr[i] = '\0';
+		write(fd, &s[i], 1);
 		i++;
 	}
-	newstr[i] = '\0';
-	return (newstr);
+	write (fd, "\n", 1);
 }

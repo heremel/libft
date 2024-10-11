@@ -6,7 +6,7 @@
 /*   By: melferre <melferre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 17:04:04 by melferre          #+#    #+#             */
-/*   Updated: 2024/10/11 20:33:26 by melferre         ###   ########.fr       */
+/*   Updated: 2024/10/12 00:43:23 by melferre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size);
 void	ft_putstr_fd(char *s, int fd);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 void	ft_putnbr_fd(int n, int fd);
+char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 #endif

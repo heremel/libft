@@ -1,27 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: melferre <melferre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/12 00:39:49 by melferre          #+#    #+#             */
-/*   Updated: 2024/10/12 21:55:14 by melferre         ###   ########.fr       */
+/*   Created: 2024/10/12 21:34:51 by melferre          #+#    #+#             */
+/*   Updated: 2024/10/12 21:45:19 by melferre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s1, char const *set)
+char **ft_split(char const *s, char c)
 {
-	int		i;
-	char	*newstr;
+	char **newstr;
+	char	*s1;
+	int	i;
 
 	i = 0;
-	newstr = malloc (ft_strlen(s1));
+	s1 = (char *)s;
+	newstr = malloc(ft_strlen(s) + 1);
 	if (!newstr)
 		return (NULL);
-	while (s1[i])
-		;
+	while (s[i])
+	{
+		s1 = (char *)s;
+		if (s[i] == c)
+		{
+			newstr[i] = &s1[i];
+			return(&newstr[i]);
+		}
+		i++;
+	}
 	return (0);
 }

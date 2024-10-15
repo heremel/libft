@@ -3,19 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bcarolle <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: melferre <melferre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 00:53:09 by melferre          #+#    #+#             */
-/*   Updated: 2024/10/14 16:43:59 by bcarolle         ###   ########.fr       */
+/*   Updated: 2024/10/15 01:04:06 by melferre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //STANDBY, CONTINUE TOMORROW.
 #include "libft.h"
+
 int	get_div(int n)
 {
 	long	new_n;
-	int	result;
+	int		result;
 
 	new_n = (long)n;
 	result = 1;
@@ -28,10 +29,10 @@ int	get_div(int n)
 	}
 	return (result);
 }
+
 int	get_size(int n)
 {
-	int	count;
-
+	int		count;
 	long	new_n;
 
 	new_n = (long)n;
@@ -48,12 +49,13 @@ int	get_size(int n)
 	}
 	return (count);
 }
+
 char	*ft_itoa(int n)
 {
 	char	*str;
 	int		i;
 	long	new_n;
-	int	var_div;
+	int		var_div;
 
 	new_n = (long)n;
 	i = 0;

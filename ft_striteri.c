@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: melferre <melferre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/12 00:39:49 by melferre          #+#    #+#             */
-/*   Updated: 2024/10/15 02:03:40 by melferre         ###   ########.fr       */
+/*   Created: 2024/10/15 01:15:28 by melferre          #+#    #+#             */
+/*   Updated: 2024/10/15 02:03:02 by melferre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s1, char const *set)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	int		i;
-	char	*newstr;
-	char	*sec_set;
+	int	i;
 
 	i = 0;
-	sec_set = (char *)set;
-	newstr = malloc (ft_strlen(s1));
-	if (!newstr)
-		return (NULL);
-	while (newstr[i])
+	while (s[i])
 	{
-		if (sec_set[i] == newstr[i])
-		{
-			return (newstr);
-		}
+		(*f)(i, &s[i]);
 		i++;
 	}
-	return (newstr);
 }

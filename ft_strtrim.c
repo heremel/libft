@@ -6,33 +6,40 @@
 /*   By: bcarolle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 00:39:49 by melferre          #+#    #+#             */
-/*   Updated: 2024/10/15 18:39:00 by bcarolle         ###   ########.fr       */
+/*   Updated: 2024/10/16 20:12:39 by bcarolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	first_cut(char const *s1, char const *set)
+char	*first_cut(char const *s1, char const *set)
 {
-	int	i;
-	int j;
-	char *newstr;
+	int		i;
+	int 	j;
+	char	*newstr;
 
 	i = 0;
 	j = 0;
 	newstr = (char *)s1;
 	while (newstr[i])
 	{
-		if (newstr[i] == set)
+		while (set[j])
 		{
-			return (newstr[i]);
+			if (newstr[i] == set[j])
+				break;
+			j++;
+		}
+		if (set[j] == '\0')
+		{
+			break;
 		}
 		i++;
+		j = 0;
 	}
-	return (newstr);
+	return (&newstr[i]);
 }
 
-char	sec_cut(char const *s1, char const *set)
+char	*sec_cut(char const *s1, char const *set)
 {
 	int	i;
 	int j;
@@ -42,24 +49,48 @@ char	sec_cut(char const *s1, char const *set)
 	newstr = (char *)s1;
 	while (newstr[i])
 		i++;
-	while (newstr[i] > newstr[0])
+	i = i - 1;
+	while (i >= 0)
 	{
-		if (newstr[i] == set)
+		while (set[j])
 		{
-			return (newstr[i])
+			if (newstr[i] == set[j])
+				break;
+			j++;
 		}
+		if (set[j] == '\0')
+			break;
 		i--;
+		j = 0;
 	}
+	return (&newstr[i + 1]);
 }
+
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	int		i;
 	char	*newstr;
-	char	*sec_set;
+	char	*first;
+	char	length;
 
 	i = 0;
-	sec_set = (char *)set;
-	newstr = malloc (ft_strlen(s1));
+	length = sec_cut(s1, set) - first_cut(s1, set);
+	first = first_cut(s1, set);
+	if (length < 0)
+	{
+		newstr = malloc (1);
+		newstr[0] = '\0';
+		return (newstr);
+	}
+	newstr = malloc (length + 1);
 	if (!newstr)
 		return (NULL);
+	while (first != sec_cut(s1, set))
+	{
+		newstr[i] = *first;
+		i++;
+		first++;
+	}
+	newstr[i] = '\0';
+	return (newstr);
 }

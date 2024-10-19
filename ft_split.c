@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: melferre <melferre@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bcarolle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 21:34:51 by melferre          #+#    #+#             */
-/*   Updated: 2024/10/18 18:39:59 by melferre         ###   ########.fr       */
+/*   Updated: 2024/10/20 00:50:44 by bcarolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,40 +30,69 @@ int	ft_countwords(char const *s, char c)
 	}
 	return (j);
 }
-int	ft_lenword(char const *s, char c)
+int	ft_length_word(char const *s, char c)
 {
 	size_t i;
-	size_t j;
 	
 	i = 0;
-	j = 0;
-	while(s[i])
+	while(s[i] && s[i] != c)
 	{
-		
+		i++;
 	}
+	return (i);
+}
+char *ft_cpyword(char *dest, const char *src, char c)
+{
+	size_t	i;
+
+	i = 0;
+	while (src[i] && src[i] != c)
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
 }
 
 char **ft_split(char const *s, char c)
 {
 	char **split_str;
 	size_t	i;
+	size_t	j;
 
 	i = 0;
+	j = 0;	
 	split_str = malloc ((ft_countwords(s, c) + 1) * sizeof(char *));
 	if (!split_str)
 		return (NULL);
 	split_str[ft_countwords(s, c)] = NULL;
-	while (split_str[i])
+	while (s[i])
 	{
-		split_str[i] = malloc (ft_lenworld(s) * sizeof (char)); //CALCULER LONGUEUR MOT DU CDIIII
-		i++;
+		if (ft_length_word(&s[i], c) == 0)
+			break;
+		split_str[j] = malloc ((ft_length_word(&s[i], c) + 1) * sizeof (char)); //CALCULER LONGUEUR MOT DU CDIIII
+		if (!split_str)
+			return (NULL);
+		split_str[j] = ft_cpyword(split_str[j], &s[i], c);
+		j++;
+		i = i + ft_length_word(&s[i], c);
+		while (s[i] == c)
+			i++;
 	}
-	if (!split_str)
-		return (NULL);
+	return (split_str);
 }
 
-#include <stdio.h>
-int main()
-{
-	printf("%d\n", ft_countwords("Hello World !", ' '));
-}
+// #include <stdio.h>
+// int main()
+// {
+// 	char **benoit;
+// 	size_t i = 0;
+	
+// 	benoit = ft_split("Hello           World !", ' ');
+// 	while (benoit[i])
+// 	{
+// 		printf("%s\n", benoit[i]);
+// 		i++;
+// 	}
+// }
